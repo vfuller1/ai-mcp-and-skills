@@ -144,7 +144,41 @@ Invoking skill 'outdoor_event_readiness'...
 - [uv](https://docs.astral.sh/uv/) package manager
 - OpenAI API key
 
-## Testing OpenAI Connectivity
+## Testing
+
+### Integration test — advanced server
+
+Exercises all MCP primitives (tools, resources, prompts) against the live NWS API without needing an OpenAI key:
+
+```bash
+cd weather-skills
+uv run python test_server.py
+```
+
+Expected output:
+
+```
+=== MCP server initialized ===
+
+Tools found: ['get_alerts', 'get_forecast']
+  [PASS] list_tools
+  [PASS] get_alerts(CA) → Active alerts for CA: ...
+  [PASS] get_forecast(Austin TX) → Forecast: ...
+  [PASS] get_forecast(0,0) raises for non-US coordinates (expected)
+
+Resources found: ['weather://state-codes', 'weather://alert-severity-guide']
+  [PASS] list_resources
+  [PASS] read state-codes → CA=California, TX=Texas
+  [PASS] read alert-severity-guide → 5 levels
+
+Prompts found: ['outdoor_event_readiness', 'severe_weather_briefing', 'multi_day_trip_planner']
+  [PASS] list_prompts
+  ...
+
+=== All tests complete ===
+```
+
+### OpenAI connectivity smoke-test
 
 ```bash
 # from the repo root (requires OPENAI_API_KEY in .env)
