@@ -1,31 +1,85 @@
 # AI MCP and Skills
 
-A hands-on demonstration of the [Model Context Protocol (MCP)](https://modelcontextprotocol.io/) showing all three MCP primitives — **Tools**, **Resources**, and **Prompts (Skills)** — wired together with an OpenAI GPT-4o client.
+A hands-on demonstration of the [Model Context Protocol (MCP)](https://modelcontextprotocol.io/) with two learning tiers — start with the **basic** pair to understand MCP tools, then move to the **advanced** pair to explore all three MCP primitives (Tools, Resources, and Prompts/Skills).
 
 ## Project Structure
 
 ```
 ai-mcp-and-skills/
-├── weather-skills/          # MCP server: weather data via NWS API
+├── weather/                 # BASIC server: two tools only (get_alerts, get_forecast)
+│   ├── weather.py
+│   └── pyproject.toml
+├── mcp-client/              # BASIC client: simple free-form chat shell
+│   ├── client.py
+│   ├── .env.example
+│   └── pyproject.toml
+├── weather-skills/          # ADVANCED server: tools + resources + prompt skills
 │   ├── weather_server.py
 │   ├── state_codes.json
 │   └── pyproject.toml
-├── skills-client/           # MCP client: interactive chat shell + OpenAI
+├── skills-client/           # ADVANCED client: full MCP primitive explorer
 │   ├── client.py
 │   ├── .env.example
 │   └── pyproject.toml
 └── test_openai.py           # Smoke-test for OpenAI API connectivity
 ```
 
-## Components
+---
 
-### `weather-skills` — MCP Server
+## Tier 1 — Basic
 
-An MCP server backed by the free [National Weather Service API](https://api.weather.gov). It exposes all three MCP primitive types:
+A minimal MCP server + client. Good starting point for understanding how MCP tools work.
+
+### `weather/` — Basic MCP Server
+
+An MCP server backed by the free [National Weather Service API](https://api.weather.gov) exposing two tools:
+
+| Tool | Description |
+|------|-------------|
+| `get_alerts` | Active weather alerts for a US state (two-letter code) |
+| `get_forecast` | 5-period forecast for a lat/lon coordinate |
+
+### `mcp-client/` — Basic MCP Client
+
+A minimal chat shell. Type any question and GPT-4o automatically calls MCP tools as needed. No slash commands — just plain queries.
+
+**Setup & run:**
+
+```bash
+cd weather
+uv sync
+
+cd ../mcp-client
+uv sync
+cp .env.example .env   # add your OPENAI_API_KEY
+
+uv run python client.py ../weather/weather.py
+```
+
+**Example:**
+
+```
+Connected to server with tools: ['get_alerts', 'get_forecast']
+
+Query: Are there any weather alerts in Florida?
+  -> Calling tool: get_alerts({'state': 'FL'})
+
+Active alerts for FL: ...
+```
+
+---
+
+## Tier 2 — Advanced
+
+Extends the basic pair with MCP Resources and Prompts (Skills), plus a feature-rich client that lets you explore all three primitives interactively.
+
+### `weather-skills/` — Advanced MCP Server
+
+All three MCP primitive types:
 
 | Primitive | Name | Description |
 |-----------|------|-------------|
-| **Tool** | `get_alerts` | Active weather alerts for a US state (two-letter code) |
+| **Tool** | `get_alerts` | Active weather alerts for a US state |
 | **Tool** | `get_forecast` | 5-period forecast for a lat/lon coordinate |
 | **Resource** | `weather://state-codes` | JSON map of state abbreviations → full names |
 | **Resource** | `weather://alert-severity-guide` | NWS severity levels and recommended actions |
@@ -33,11 +87,9 @@ An MCP server backed by the free [National Weather Service API](https://api.weat
 | **Prompt** | `severe_weather_briefing` | Structured emergency briefing for a US state |
 | **Prompt** | `multi_day_trip_planner` | Weather-optimized itinerary for multiple destinations |
 
-### `skills-client` — MCP Client
+### `skills-client/` — Advanced MCP Client
 
-An interactive CLI chat shell that connects to any MCP server via stdio, discovers its capabilities, and routes natural-language queries through OpenAI GPT-4o with full tool-call support.
-
-**Interactive commands:**
+An interactive CLI shell that discovers and exercises all MCP primitives.
 
 | Command | Description |
 |---------|-------------|
@@ -50,15 +102,7 @@ An interactive CLI chat shell that connects to any MCP server via stdio, discove
 
 Any other input is treated as a free-form query sent to GPT-4o with all server tools available.
 
-## Prerequisites
-
-- Python 3.10+
-- [uv](https://docs.astral.sh/uv/) package manager
-- OpenAI API key
-
-## Setup
-
-**1. Install dependencies for each sub-project:**
+**Setup & run:**
 
 ```bash
 cd weather-skills
@@ -66,28 +110,12 @@ uv sync
 
 cd ../skills-client
 uv sync
-```
+cp .env.example .env   # add your OPENAI_API_KEY
 
-**2. Set your OpenAI API key:**
-
-```bash
-cp skills-client/.env.example skills-client/.env
-# Edit skills-client/.env and add your key:
-# OPENAI_API_KEY=sk-...
-```
-
-## Running
-
-Start the client and point it at the weather server:
-
-```bash
-cd skills-client
 uv run python client.py ../weather-skills/weather_server.py
 ```
 
-The client launches the server as a subprocess, performs MCP initialization, and drops you into the interactive shell.
-
-### Example session
+**Example:**
 
 ```
 --- Connected to MCP Server ---
@@ -108,6 +136,14 @@ Invoking skill 'outdoor_event_readiness'...
 ...
 ```
 
+---
+
+## Prerequisites
+
+- Python 3.10+
+- [uv](https://docs.astral.sh/uv/) package manager
+- OpenAI API key
+
 ## Testing OpenAI Connectivity
 
 ```bash
@@ -118,28 +154,27 @@ python test_openai.py
 ## How It Works
 
 ```
-┌──────────────┐   stdio/MCP   ┌──────────────────────┐
-│ skills-client│ ◄───────────► │ weather-skills server │
-│  (OpenAI)    │               │  (NWS API)            │
-└──────────────┘               └──────────────────────┘
-       │
-       │  OpenAI API (GPT-4o)
-       ▼
-  Tool calls ↔ MCP tool calls bridged automatically
+┌────────────┐   stdio/MCP   ┌───────────────┐
+│   client   │ ◄───────────► │    server     │
+│ (OpenAI)   │               │  (NWS API)    │
+└────────────┘               └───────────────┘
+      │
+      │  OpenAI API (GPT-4o)
+      ▼
+ Tool calls ↔ MCP tool calls bridged automatically
 ```
 
-1. The client connects to the MCP server over stdin/stdout.
-2. It discovers tools, resources, and prompts via MCP initialization.
-3. When a skill is invoked, the prompt template is fetched from the server and sent to GPT-4o.
-4. GPT-4o may request tool calls; the client routes them back through the MCP session to the server.
-5. The final response is printed to the terminal.
+1. The client launches the server as a subprocess and connects over stdin/stdout.
+2. It discovers tools (and optionally resources/prompts) via MCP initialization.
+3. User queries are sent to GPT-4o; any tool calls are routed back through the MCP session.
+4. For skills (advanced), the prompt template is fetched from the server and injected as the system/user message.
 
 ## Dependencies
 
 | Package | Used in | Purpose |
 |---------|---------|---------|
-| `mcp[cli]` | weather-skills | MCP server framework (FastMCP) |
-| `httpx` | weather-skills | Async HTTP client for NWS API |
-| `mcp` | skills-client | MCP client session |
-| `openai` | skills-client | GPT-4o chat completions + tool use |
-| `python-dotenv` | skills-client | Load `.env` for API key |
+| `mcp[cli]` | weather, weather-skills | MCP server framework (FastMCP) |
+| `httpx` | weather, weather-skills | Async HTTP client for NWS API |
+| `mcp` | mcp-client, skills-client | MCP client session |
+| `openai` | mcp-client, skills-client | GPT-4o chat completions + tool use |
+| `python-dotenv` | mcp-client, skills-client | Load `.env` for API key |
