@@ -1,0 +1,345 @@
+{
+  "Austin": {
+    "state": "TX",
+    "latitude": 30.2672,
+    "longitude": -97.7431,
+    "avg_hotel_per_night": 180,
+    "peak_season": "March–May",
+    "peak_season_surcharge_pct": 25,
+    "flights": {
+      "New York":    280,
+      "Los Angeles": 220,
+      "Chicago":     240,
+      "Dallas":      150,
+      "Atlanta":     260
+    },
+    "travel_time_hours": {
+      "New York":    3.5,
+      "Los Angeles": 3.0,
+      "Chicago":     2.5,
+      "Dallas":      1.0,
+      "Atlanta":     2.5
+    },
+    "upcoming_events": [
+      {
+        "name": "SXSW",
+        "date_range": "2026-03-13 to 2026-03-22",
+        "impact": "High",
+        "description": "Major tech, music, and film festival. Hotels sell out months in advance; prices triple."
+      },
+      {
+        "name": "Austin City Limits Music Festival",
+        "date_range": "2026-10-02 to 2026-10-11",
+        "impact": "High",
+        "description": "One of the largest US music festivals held in Zilker Park."
+      },
+      {
+        "name": "Formula 1 US Grand Prix",
+        "date_range": "2026-10-22 to 2026-10-24",
+        "impact": "High",
+        "description": "F1 race at Circuit of the Americas. City-wide hotel surge."
+      }
+    ]
+  },
+
+  "Miami": {
+    "state": "FL",
+    "latitude": 25.7617,
+    "longitude": -80.1918,
+    "avg_hotel_per_night": 220,
+    "peak_season": "December–April",
+    "peak_season_surcharge_pct": 35,
+    "flights": {
+      "New York":    180,
+      "Los Angeles": 280,
+      "Chicago":     200,
+      "Dallas":      220,
+      "Atlanta":     160
+    },
+    "travel_time_hours": {
+      "New York":    3.0,
+      "Los Angeles": 5.5,
+      "Chicago":     3.0,
+      "Dallas":      3.0,
+      "Atlanta":     2.0
+    },
+    "upcoming_events": [
+      {
+        "name": "Ultra Music Festival",
+        "date_range": "2026-03-27 to 2026-03-29",
+        "impact": "High",
+        "description": "Global EDM festival in Bayfront Park. Hotel rates spike 50–80%."
+      },
+      {
+        "name": "Miami Open (Tennis)",
+        "date_range": "2026-03-18 to 2026-04-05",
+        "impact": "Medium",
+        "description": "ATP/WTA Masters event at Hard Rock Stadium."
+      },
+      {
+        "name": "Art Basel Miami Beach",
+        "date_range": "2026-12-03 to 2026-12-06",
+        "impact": "High",
+        "description": "Premier international art fair. South Beach hotels book out entirely."
+      }
+    ]
+  },
+
+  "Denver": {
+    "state": "CO",
+    "latitude": 39.7392,
+    "longitude": -104.9903,
+    "avg_hotel_per_night": 160,
+    "peak_season": "December–February",
+    "peak_season_surcharge_pct": 20,
+    "flights": {
+      "New York":    260,
+      "Los Angeles": 180,
+      "Chicago":     200,
+      "Dallas":      180,
+      "Atlanta":     240
+    },
+    "travel_time_hours": {
+      "New York":    4.0,
+      "Los Angeles": 2.5,
+      "Chicago":     2.5,
+      "Dallas":      2.0,
+      "Atlanta":     3.5
+    },
+    "upcoming_events": [
+      {
+        "name": "Great American Beer Festival",
+        "date_range": "2026-10-01 to 2026-10-03",
+        "impact": "Medium",
+        "description": "Largest commercial beer competition in the US. Downtown Denver gets crowded."
+      },
+      {
+        "name": "Denver Film Festival",
+        "date_range": "2026-11-04 to 2026-11-15",
+        "impact": "Low",
+        "description": "Annual international film festival across Denver venues."
+      },
+      {
+        "name": "Cinco de Mayo Festival",
+        "date_range": "2026-05-02 to 2026-05-03",
+        "impact": "Medium",
+        "description": "One of the largest Cinco de Mayo celebrations in the US at Civic Center Park."
+      }
+    ]
+  },
+
+  "San Francisco": {
+    "state": "CA",
+    "latitude": 37.7749,
+    "longitude": -122.4194,
+    "avg_hotel_per_night": 250,
+    "peak_season": "June–August",
+    "peak_season_surcharge_pct": 15,
+    "flights": {
+      "New York":    320,
+      "Los Angeles": 120,
+      "Chicago":     260,
+      "Dallas":      240,
+      "Atlanta":     300
+    },
+    "travel_time_hours": {
+      "New York":    5.5,
+      "Los Angeles": 1.5,
+      "Chicago":     4.5,
+      "Dallas":      3.5,
+      "Atlanta":     5.0
+    },
+    "upcoming_events": [
+      {
+        "name": "Outside Lands Music Festival",
+        "date_range": "2026-08-07 to 2026-08-09",
+        "impact": "High",
+        "description": "Major music and arts festival in Golden Gate Park."
+      },
+      {
+        "name": "Salesforce Dreamforce",
+        "date_range": "2026-09-15 to 2026-09-18",
+        "impact": "High",
+        "description": "Massive tech conference. Downtown hotels book out 6 months ahead; prices double."
+      },
+      {
+        "name": "SF Pride Parade",
+        "date_range": "2026-06-27 to 2026-06-28",
+        "impact": "Medium",
+        "description": "One of the largest Pride events in the world along Market Street."
+      }
+    ]
+  },
+
+  "Nashville": {
+    "state": "TN",
+    "latitude": 36.1627,
+    "longitude": -86.7816,
+    "avg_hotel_per_night": 150,
+    "peak_season": "April–October",
+    "peak_season_surcharge_pct": 20,
+    "flights": {
+      "New York":    200,
+      "Los Angeles": 260,
+      "Chicago":     160,
+      "Dallas":      180,
+      "Atlanta":     140
+    },
+    "travel_time_hours": {
+      "New York":    2.5,
+      "Los Angeles": 4.0,
+      "Chicago":     2.0,
+      "Dallas":      2.0,
+      "Atlanta":     1.0
+    },
+    "upcoming_events": [
+      {
+        "name": "CMA Music Festival",
+        "date_range": "2026-06-04 to 2026-06-07",
+        "impact": "High",
+        "description": "Country Music Association's flagship fan festival. Downtown packed; hotel rates up 60%."
+      },
+      {
+        "name": "Nashville Film Festival",
+        "date_range": "2026-05-13 to 2026-05-17",
+        "impact": "Low",
+        "description": "Annual film festival at various Nashville venues."
+      },
+      {
+        "name": "Tennessee Walking Horse National Celebration",
+        "date_range": "2026-08-28 to 2026-09-05",
+        "impact": "Medium",
+        "description": "Premier walking horse competition in nearby Shelbyville, draws large crowds to the region."
+      }
+    ]
+  },
+
+  "Seattle": {
+    "state": "WA",
+    "latitude": 47.6062,
+    "longitude": -122.3321,
+    "avg_hotel_per_night": 190,
+    "peak_season": "June–September",
+    "peak_season_surcharge_pct": 15,
+    "flights": {
+      "New York":    340,
+      "Los Angeles": 160,
+      "Chicago":     280,
+      "Dallas":      260,
+      "Atlanta":     320
+    },
+    "travel_time_hours": {
+      "New York":    6.0,
+      "Los Angeles": 2.5,
+      "Chicago":     4.5,
+      "Dallas":      4.0,
+      "Atlanta":     5.5
+    },
+    "upcoming_events": [
+      {
+        "name": "Bumbershoot Festival",
+        "date_range": "2026-09-05 to 2026-09-07",
+        "impact": "Medium",
+        "description": "Arts and music festival at Seattle Center over Labor Day weekend."
+      },
+      {
+        "name": "Seattle International Film Festival",
+        "date_range": "2026-05-14 to 2026-05-24",
+        "impact": "Low",
+        "description": "Largest film festival in the US by number of films screened."
+      },
+      {
+        "name": "Seafair",
+        "date_range": "2026-07-24 to 2026-08-02",
+        "impact": "Medium",
+        "description": "Summer festival featuring hydroplane races and the Blue Angels air show."
+      }
+    ]
+  },
+
+  "Phoenix": {
+    "state": "AZ",
+    "latitude": 33.4484,
+    "longitude": -112.0740,
+    "avg_hotel_per_night": 140,
+    "peak_season": "October–April",
+    "peak_season_surcharge_pct": 30,
+    "flights": {
+      "New York":    280,
+      "Los Angeles": 120,
+      "Chicago":     220,
+      "Dallas":      180,
+      "Atlanta":     260
+    },
+    "travel_time_hours": {
+      "New York":    5.0,
+      "Los Angeles": 1.5,
+      "Chicago":     3.5,
+      "Dallas":      2.5,
+      "Atlanta":     4.0
+    },
+    "upcoming_events": [
+      {
+        "name": "Waste Management Phoenix Open",
+        "date_range": "2026-02-02 to 2026-02-08",
+        "impact": "High",
+        "description": "Largest-attended golf tournament in the world at TPC Scottsdale."
+      },
+      {
+        "name": "Barrett-Jackson Car Auction",
+        "date_range": "2026-01-17 to 2026-01-25",
+        "impact": "Medium",
+        "description": "World's largest collector-car auction in Scottsdale."
+      },
+      {
+        "name": "Cactus League Spring Training",
+        "date_range": "2026-02-21 to 2026-03-26",
+        "impact": "Medium",
+        "description": "MLB spring training across 10 stadiums in the Phoenix metro area."
+      }
+    ]
+  },
+
+  "New Orleans": {
+    "state": "LA",
+    "latitude": 29.9511,
+    "longitude": -90.0715,
+    "avg_hotel_per_night": 170,
+    "peak_season": "February–May",
+    "peak_season_surcharge_pct": 40,
+    "flights": {
+      "New York":    220,
+      "Los Angeles": 260,
+      "Chicago":     200,
+      "Dallas":      160,
+      "Atlanta":     180
+    },
+    "travel_time_hours": {
+      "New York":    3.0,
+      "Los Angeles": 4.0,
+      "Chicago":     2.5,
+      "Dallas":      1.5,
+      "Atlanta":     2.0
+    },
+    "upcoming_events": [
+      {
+        "name": "Mardi Gras",
+        "date_range": "2026-02-13 to 2026-02-17",
+        "impact": "High",
+        "description": "World-famous carnival. Hotels book a year ahead; prices surge 100–200%."
+      },
+      {
+        "name": "New Orleans Jazz & Heritage Festival",
+        "date_range": "2026-04-24 to 2026-05-03",
+        "impact": "High",
+        "description": "Iconic two-weekend music festival at Fair Grounds Race Course."
+      },
+      {
+        "name": "French Quarter Festival",
+        "date_range": "2026-04-09 to 2026-04-12",
+        "impact": "Medium",
+        "description": "Free outdoor music festival across 20 stages in the French Quarter."
+      }
+    ]
+  }
+}
