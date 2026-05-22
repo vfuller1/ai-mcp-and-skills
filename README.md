@@ -39,7 +39,7 @@ ai-mcp-and-skills/
 
 A minimal MCP server + client. Good starting point for understanding how MCP tools work.
 
-![MCP Demo Operation](images/MCP%20Demo.png)
+![MCP Demo Operation](images/mcp-demo.png)
 
 ### `weather/` — Basic MCP Server
 
@@ -84,7 +84,7 @@ Active alerts for FL: ...
 
 Extends the basic pair with MCP Resources and Prompts (Skills), plus a feature-rich client that lets you explore all three primitives interactively.
 
-![Skills Demo](images/Skills%20Demo.jpg)
+![Skills Demo](images/skills-demo.jpg)
 
 ### `weather-skills/` — Advanced MCP Server
 
@@ -157,7 +157,7 @@ A multi-agent system that compares travel destinations by combining **live weath
 
 ### Architecture
 
-![A2A Travel Weather Comparator](images/Coordinator%20A2A%20Demo.jpg)
+![A2A Travel Weather Comparator](images/coordinator-a2a-demo.jpg)
 
 ```
 travel_coordinator.py  (OpenAI GPT-4o — orchestrator)
